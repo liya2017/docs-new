@@ -1,4 +1,6 @@
 const path = require("path");
+const math = require('remark-math');
+const katex = require('rehype-katex');
 
 module.exports = {
   title: "Nervos CKB",
@@ -65,6 +67,8 @@ module.exports = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarPath: require.resolve("./sidebars.json"),
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         blog: {},
         theme: {
@@ -75,6 +79,15 @@ module.exports = {
         }
       },
     ],
+  ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity:
+        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
   ],
   plugins: [],
   themeConfig: {
